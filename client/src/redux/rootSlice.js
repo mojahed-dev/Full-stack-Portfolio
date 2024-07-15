@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Create a slice of the state with name 'root', initial state, and reducers
 const rootSlice = createSlice({
-    name: 'root',
+    name: 'root', // Name of the slice
     initialState: {
-        loading: false,
-        portfolioData: null
+        loading: false, // Initial state for loading
+        portfolioData: null // Initial state for portfolio data
     },
     reducers: {
         Showloading: (state, action) => {

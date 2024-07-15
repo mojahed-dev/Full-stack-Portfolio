@@ -7,13 +7,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Showloading, HideLoading, SetPortfolioData } from './redux/rootSlice';
 
 function App() {
-  const { loading, portfolioData } = useSelector((state) => state.root) 
-  const dispatch = useDispatch();
+// Select state from the Redux store
+const { loading, portfolioData } = useSelector((state) => state.root);
+// Get the dispatch function to dispatch actions
+const dispatch = useDispatch();
 
+// Function to fetch portfolio data
   const getPortfolioData = async () => {
     try {
+       // Dispatch action to show loading
       dispatch(Showloading(true));
       const response = await axios.get("/api/portfolio/get-portfolio-data");
+      // Dispatch action to set portfolio data
       dispatch(SetPortfolioData(response.data));
       dispatch(HideLoading());
     } catch (error) {
@@ -23,6 +28,7 @@ function App() {
     }
   }
 
+  // useEffect to fetch data on component mount or when portfolioData changes
   useEffect(() => {
    if(!portfolioData) {
     getPortfolioData();
