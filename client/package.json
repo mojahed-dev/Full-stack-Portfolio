@@ -42,6 +42,5 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.4"
-  },
-  "proxy": "https://full-stack-portfolio-8b9u.onrender.com/"
+  }
 }
