@@ -17,7 +17,7 @@ const dispatch = useDispatch();
     try {
        // Dispatch action to show loading
       dispatch(Showloading(true));
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/get-portfolio-data`);
+     const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/get-portfolio-data`);
       // Dispatch action to set portfolio data
       dispatch(SetPortfolioData(response.data));
       dispatch(HideLoading());
