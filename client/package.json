@@ -43,5 +43,5 @@
   "devDependencies": {
     "tailwindcss": "^3.4.4"
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "https://full-stack-portfolio-8b9u.onrender.com/"
 }
