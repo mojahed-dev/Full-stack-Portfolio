@@ -20,6 +20,7 @@ const dispatch = useDispatch();
      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/get-portfolio-data`);
       // Dispatch action to set portfolio data
       dispatch(SetPortfolioData(response.data));
+      console.log("data", response.data);
       dispatch(HideLoading());
     } catch (error) {
       console.error(error);

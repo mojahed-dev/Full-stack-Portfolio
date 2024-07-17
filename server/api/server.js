@@ -8,10 +8,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Use CORS to allow requests from your frontend domain
-app.use(cors({
-  origin: 'http://localhost:3000', // Change this to specific domains if needed
-  credentials: true,
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use("/api/portfolio", portfolioRoute);
