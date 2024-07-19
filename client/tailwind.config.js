@@ -52,10 +52,54 @@ module.exports = {
       }
      
     },
+    boxShadow: {
+      'custom-black': '3px 3px 0px black',
+    },
+    transitionProperty: {
+      'custom-all': 'all',
+    },
+    translate: {
+      '3': '3px',
+    },
     screens: {
       lg: { max: "2023px" },
       sm: { max: "639px" },
     }
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+    function({ addUtilities }) {
+      const newUtilities = {
+       '.btn-custom-primary': {
+        padding: '0.5rem 1.5rem', // px-6 py-2
+        fontWeight: '500', // font-medium
+        backgroundColor: '#0A192F', // bg-indigo-500
+        color: '#ffffff', // text-white
+        width: 'fit-content', // w-fit
+        transition: 'all 0.3s ease-in-out', // transition-all duration-300 ease-in-out
+        boxShadow: '3px 3px 0px #F97316', // shadow-[3px_3px_0px_black]
+        },
+        '.btn-custom-primary:hover': {
+          boxShadow: 'none', // hover:shadow-none
+          transform: 'translate(3px, 3px)', // hover:translate-x-[3px] hover:translate-y-[3px]
+        },
+        '.btn-custom-danger': {
+          padding: '0.5rem 1.5rem', // px-6 py-2
+          fontWeight: '500', // font-medium
+          backgroundColor: '#FF7875', // bg-indigo-500
+          color: '#ffffff', // text-white
+          width: 'fit-content', // w-fit
+          transition: 'all 0.3s ease-in-out', // transition-all duration-300 ease-in-out
+          boxShadow: '3px 3px 0px red', // shadow-[3px_3px_0px_black]
+          },
+          '.btn-custom-danger:hover': {
+            boxShadow: 'none', // hover:shadow-none
+            transform: 'translate(3px, 3px)', // hover:translate-x-[3px] hover:translate-y-[3px]
+          },
+          
+      }
+
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    },
+  ],
 }

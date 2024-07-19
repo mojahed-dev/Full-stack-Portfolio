@@ -36,6 +36,7 @@ const AdminAbout = () => {
       }
     };
   return (
+    <div className='p-5 border rounded-lg bg-white'>
       <Form onFinish={onFinish} layout='vertical' className='mt-5' initialValues={{
          ...portfolioData.about,
         skills: portfolioData.about.skills.join(" , ")
@@ -58,6 +59,7 @@ const AdminAbout = () => {
               </Button>
           </div>
       </Form>
+      </div>
   )
 }
 

@@ -34,6 +34,7 @@ const AdminIntro = () => {
         }
       };
     return (
+        <div className='p-5 border rounded-lg bg-white'>
         <Form onFinish={onFinish} layout='vertical' className='mt-5' initialValues={portfolioData?.intro}>
             <Form.Item name='welcomeText' label='Welcome text'>
                 <Input placeholder='Welcome text' />
@@ -48,11 +49,12 @@ const AdminIntro = () => {
                 <TextArea rows={4} placeholder='Description' />
             </Form.Item>
             <div className="flex justify-end w-full">
-                <Button className='bg-primary text-white px-10 py-5' htmlType="submit">
+                <button className="btn-custom-primary btn-md" type="submit">
                     Submit
-                </Button>
+                </button>
             </div>
         </Form>
+        </div>
     )
 }
 

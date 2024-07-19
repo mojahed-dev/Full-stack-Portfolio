@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Modal, Form, Input, message } from 'antd';
 import { Showloading, HideLoading, ReloadData } from "../../redux/rootSlice";
@@ -10,6 +10,15 @@ const AdminExperience = () => {
     const { experience } = portfolioData;
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedEditItemForEdit, setSelectedEditItemForEdit] = useState(null);
+    const [form] = Form.useForm(); // Create a form instance
+
+    useEffect(() => {
+        if (selectedEditItemForEdit) {
+            form.setFieldsValue(selectedEditItemForEdit); // Update form fields when selected item changes
+        } else {
+            form.resetFields(); // Clear the form when no item is selected
+        }
+    }, [selectedEditItemForEdit, form]);
 
     const showModal = (item) => {
         setSelectedEditItemForEdit(item);
@@ -29,11 +38,20 @@ const AdminExperience = () => {
     const onFinish = async (values) => {
         try {
             dispatch(Showloading());
-            const response = await axios.post(
-                `${process.env.REACT_APP_API_URL}/api/portfolio/add-experience`, 
-                values
-            );
+            let response;
+            if (selectedEditItemForEdit) {
+                response = await axios.post(`${process.env.REACT_APP_API_URL}/api/portfolio/update-experience`, {
+                    ...values,
+                    _id: selectedEditItemForEdit._id,
+                });
+            } else {
+                response = await axios.post(
+                    `${process.env.REACT_APP_API_URL}/api/portfolio/add-experience`, values
+                );
+            }
+
             dispatch(HideLoading());
+
             if (response.data.success) {
                 message.success(response.data.message);
                 handleCancel();
@@ -50,13 +68,14 @@ const AdminExperience = () => {
     return (
         <div>
             <div className="flex justify-end">
-                <Button type='primary' size='large' onClick={() => showModal(null)}>
+                <button className="btn-custom-primary" onClick={() => showModal(null)}>
                     Add Experience
-                </Button>
+                </button>
             </div>
+
             <div className="grid grid-cols-4 gap-5 mt-5">
                 {experience?.map((exp) => (
-                    <div key={exp.id} className='shadow border p-5 border-gray-400 flex flex-col h-full'>
+                    <div key={exp.id} className='shadow border p-5 flex flex-col h-full bg-white'>
                         <div className="flex-1 space-y-4">
                             <p className='text-secondary text-xl font-bold'>{exp.period}</p>
                             <hr className='my-3' />
@@ -64,9 +83,15 @@ const AdminExperience = () => {
                             <p>Role: {exp.title}</p>
                             <p>{exp.description}</p>
                         </div>
-                        <div className='flex justify-end gap-4 mt-4 ml-auto'>
-                            <Button type='primary' danger>Delete</Button>
-                            <Button type="primary" onClick={() => showModal(exp)}>Edit</Button>
+                        <div className='flex justify-end gap-3 mt-4 ml-auto'>
+                            <button
+                               className="btn btn-ghost hover:shadow-black text-error btn-sm rounded-none"
+                                danger>Delete
+                            </button>
+                            <button
+                                className='btn btn-sm rounded-none btn-custom-primary'
+                                onClick={() => showModal(exp)}>Edit
+                            </button>
                         </div>
                     </div>
                 ))}
@@ -74,12 +99,12 @@ const AdminExperience = () => {
             <Modal
                 footer={null}
                 open={isModalOpen}
-                onOk={handleOk}
                 onCancel={handleCancel}
                 title={selectedEditItemForEdit ? 'Edit Experience' : 'Add Experience'}
             >
                 <Form
                     layout='vertical'
+                    key={selectedEditItemForEdit ? selectedEditItemForEdit._id : 'new'}
                     initialValues={selectedEditItemForEdit || {}}
                     onFinish={onFinish}
                 >
@@ -111,11 +136,11 @@ const AdminExperience = () => {
                     >
                         <Input placeholder='Description' />
                     </Form.Item>
-                    <div className="flex justify-end gap-4 mt-4 ml-auto">
-                        <Button type='text' onClick={handleCancel}>Cancel</Button>
-                        <Button type="primary" htmlType="submit">
+                    <div className="flex justify-end gap-3 mt-4 ml-auto">
+                        <button className='btn btn-ghost btn-sm rounded-none' onClick={handleCancel}>Cancel</button>
+                        <button className='btn btn-sm rounded-none btn-custom-primary' type="submit">
                             {selectedEditItemForEdit ? 'Update' : 'Add'}
-                        </Button>
+                        </button>
                     </div>
                 </Form>
             </Modal>

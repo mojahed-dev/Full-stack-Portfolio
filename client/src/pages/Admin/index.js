@@ -29,13 +29,13 @@ const items = [
 const Admin = () => {
     const { portfolioData } = useSelector((state) => state.root);
     return (
-        <>
+        <div className='bg-[#F0F2F5] min-h-screen m-0 p-0'>
             {/* <Header /> */}
            { portfolioData &&  
-            <div className="mt-5 p-5">
+            <div className="p-5">
                 <Tabs defaultActiveKey="1" items={items} />
             </div> }
-        </>
+        </div>
     )
 }
 
