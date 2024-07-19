@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // "primary": "#0A192F",
-        // "secondary": "#F97316",
-        // "tertiary": "#54D688",
+        "primary": "#0A192F",
+        "secondary": "#F97316",
+        "tertiary": "#54D688",
 
          // Alternative 1
         //  "primary": "#1E293B",
@@ -41,9 +41,9 @@ module.exports = {
         // "tertiary": "#00BCD4",
 
          // Dark Theme
-         "primary": "#1E1E1E",
-         "secondary": "#FFCC00",
-         "tertiary": "#4CAF50",
+        //  "primary": "#1E1E1E",
+        //  "secondary": "#FFCC00",
+        //  "tertiary": "#4CAF50",
 
         //  Light Theme
         // "primary": "#F5F5F5",

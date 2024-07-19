@@ -10,7 +10,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
   
   /* Track */
@@ -86,4 +86,11 @@
     100% {
       opacity: 1;
     }
+  }
+
+  Input {
+    height: 40px ;
+    border: 1px solid gray;
+    width: 100%;
+    padding-left: 20px;
   }
