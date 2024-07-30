@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 
 const { Intro, About, Project, Contact, Experience } = require('../models/portfolioModel');
+const User = require('../models/userModel');
 
 // get portfolio data
 router.get('/get-portfolio-data', async (req, res) => {
@@ -109,5 +110,27 @@ router.post("/update-experience", async (req, res) => {
     }
 });
 
+// admin login
+router.post("/admin-login", async (req, res) => {
+    try {
+        const user = await User.findOne({ username: req.body.username, password: req.body.password });
+       if(user) {
+        res.status(200).send({
+            data: user,
+            success: true,
+            message: "Login successfully"
+        });
+       }
+       else {
+        res.status(200).send({
+            data: user,
+            success: false,
+            message: "invalid username of password"
+        })
+       }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
 
 module.exports = router;

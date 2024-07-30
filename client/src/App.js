@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import { useDispatch, useSelector } from 'react-redux';
 import { Showloading, HideLoading, SetPortfolioData, ReloadData } from './redux/rootSlice';
 import Admin from './pages/Admin';
+import Login from './pages/Admin/Login';
 // import 'antd/dist/antd.min.css';
 
 function App() {
@@ -55,6 +56,7 @@ const dispatch = useDispatch();
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/admin' element={ <Admin /> } />
+        <Route path='/admin-login' element={ <Login /> } />
 
       </Routes>
     </BrowserRouter>

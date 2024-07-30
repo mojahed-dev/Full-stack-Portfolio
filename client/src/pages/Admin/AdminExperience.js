@@ -73,7 +73,7 @@ const AdminExperience = () => {
                 </button>
             </div>
 
-            <div className="grid grid-cols-4 gap-5 mt-5">
+            <div className="grid lg:grid-cols-4 gap-5 mt-5">
                 {experience?.map((exp) => (
                     <div key={exp.id} className='shadow border p-5 flex flex-col h-full bg-white'>
                         <div className="flex-1 space-y-4">

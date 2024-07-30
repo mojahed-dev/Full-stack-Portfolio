@@ -33,7 +33,7 @@ const Admin = () => {
             {/* <Header /> */}
            { portfolioData &&  
             <div className="p-5">
-                <Tabs defaultActiveKey="1" items={items} />
+                <Tabs defaultActiveKey="1" items={items} tabPosition='left'/>
             </div> }
         </div>
     )

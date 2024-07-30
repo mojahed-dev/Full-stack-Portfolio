@@ -44,7 +44,7 @@ const Project = () => {
                     </div>
                 </div>
             </div> */}
-            <div className='flex gap-10 items-center justify-center sm:flex-col lg:grid lg:grid-cols-4'>
+            <div className='flex gap-10 items-center justify-center sm:flex-col lg:grid lg:grid-cols-3'>
                 {project.map((pro, index) => (
                     <div className="card bg-base-100 w-96 shadow-xl z-0">
                         <figure>
