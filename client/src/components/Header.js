@@ -40,7 +40,7 @@ const Header = () => {
     // </header>
     // <div> <Nav /></div>
     <>
-      <div className="navbar bg-base-200 sticky top-0 sm:sticky sm:z-[1000]">
+      <div className="navbar bg-base-200 sticky top-0 sm:sticky z-[1000]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
