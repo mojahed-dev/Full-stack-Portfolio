@@ -8,7 +8,7 @@ const Project = () => {
     const { project } = portfolioData;
     return (
         <div id='projects' className='min-h-screen w-full flex flex-col justify-center'>
-            <SectionTitle title="Projects" />
+            <SectionTitle title="Recent Projects" />
             {/* <div className="flex py-10 gap-20 sm:flex-col">
                 <div className='flex flex-col gap-10 border-l-2 border-[#135e4c82] w-1/3 sm:flex-row sm:overflow-x-scroll sm:w-full'>
                     {project.map((proj, index) => (
