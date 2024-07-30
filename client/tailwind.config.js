@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary": "#0A192F",
-        "secondary": "#F97316",
-        "tertiary": "#54D688",
+        // "primary": "#0A192F",
+        // "secondary": "#F97316",
+        // "tertiary": "#54D688",
 
          // Alternative 1
         //  "primary": "#1E293B",
@@ -62,10 +62,11 @@ module.exports = {
       '3': '3px',
     },
     screens: {
-      lg: { max: "2023px" },
+      lg: { max: "2023px", min: "640px" },
       sm: { max: "639px" },
     }
   },
+  important: true,
   plugins: [
     require('daisyui'),
     function({ addUtilities }) {
@@ -102,4 +103,7 @@ module.exports = {
       addUtilities(newUtilities, ['responsive', 'hover'])
     },
   ],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 }

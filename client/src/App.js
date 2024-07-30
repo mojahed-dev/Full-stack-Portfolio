@@ -24,7 +24,7 @@ const dispatch = useDispatch();
       // Dispatch action to set portfolio data
       dispatch(SetPortfolioData(response.data));
       dispatch(ReloadData(false));
-      console.log("data", response.data);
+      // console.log("data", response.data);
       dispatch(HideLoading());
     } catch (error) {
       console.error(error);

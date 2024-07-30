@@ -7,9 +7,9 @@ const Project = () => {
     const { portfolioData } = useSelector((state) => state.root);
     const { project } = portfolioData;
     return (
-        <div>
+        <div id='projects' className='min-h-screen w-full flex flex-col justify-center'>
             <SectionTitle title="Projects" />
-            <div className="flex py-10 gap-20 sm:flex-col">
+            {/* <div className="flex py-10 gap-20 sm:flex-col">
                 <div className='flex flex-col gap-10 border-l-2 border-[#135e4c82] w-1/3 sm:flex-row sm:overflow-x-scroll sm:w-full'>
                     {project.map((proj, index) => (
                         <div onClick={() => { setSelectedItemIndex(index) }} className='cursor-pointer'>
@@ -43,6 +43,31 @@ const Project = () => {
                         ))}
                     </div>
                 </div>
+            </div> */}
+            <div className='flex gap-10 items-center justify-center sm:flex-col'>
+                {project.map((pro, index) => (
+                    <div className="card bg-base-100 w-96 shadow-xl z-0">
+                        <figure>
+                            <img
+                                src={(pro.image) ? pro.image : 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp'}
+                                alt="Project" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{pro.title || ''}</h2>
+                            {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
+                            <div className='flex flex-wrap gap-1'>
+                                <span className='text-sm'>Tech used: </span>
+                                {pro.technologies.map((tech, techIndex) => (
+                                     <span className='badge badge-secondary' key={techIndex}>{tech || ''}</span>
+                                ))}
+                            </div>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-sm btn-link"><a href={pro.code || ''} target="_blank" rel="noopener noreferrer">Code Link</a></button>
+                                <button className="btn btn-sm btn-primary"><a href={pro.link || ''} target="_blank" rel="noopener noreferrer">Demo</a></button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     )

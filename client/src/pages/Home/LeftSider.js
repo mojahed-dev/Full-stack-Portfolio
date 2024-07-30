@@ -2,7 +2,7 @@ import React from 'react'
 
 const LeftSider = () => {
     return (
-        <div className='fixed left-0 bottom-0 px-10 sm:static'>
+        <div className='fixed left-0 bottom-0 px-10 sm:static lg:hidden'>
             <div className="flex flex-col items-center gap-3">
                 <div className="flex flex-col gap-3 sm:flex-row">
                     <a href="mailto:mojahed.alo.habib@gmail.com">

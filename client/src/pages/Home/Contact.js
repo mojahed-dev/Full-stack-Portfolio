@@ -7,8 +7,8 @@ const Contact = () => {
     const { portfolioData } = useSelector((state) => state.root);
     const { contact } = portfolioData;
     return (
-        <div>
-            <SectionTitle title='Reach me out!' />
+        <div id='contact' className='min-h-screen w-full flex flex-col justify-center'>
+            <SectionTitle title='Say Hello!' />
             <div className="flex sm:flex-col items-center justify-between">
                 <div className="flex flex-col gap-1">
                     <p className='text-tertiary'>{'{'}</p>
@@ -16,8 +16,8 @@ const Contact = () => {
                         .filter(key => key !== '_id') // Filter out the _id key
                         .map((key) => (
                             <h1 className='ml-5' key={key}>
-                                <span className="text-tertiary">{key}: </span>
-                                <span className='text-white'>{`"${contact[key]}"` || ''}</span>
+                                <span className="text-primary">{key}: </span>
+                                <span className='text-secondary'>{`"${contact[key]}"` || ''}</span>
                             </h1>
                         ))}
                     <p className='text-tertiary'>{'}'}</p>
