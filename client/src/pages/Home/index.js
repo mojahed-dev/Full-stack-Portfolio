@@ -13,20 +13,24 @@ import Skills from './Skills';
 const Home = () => {
     const { loading, portfolioData } = useSelector((state) => state.root);
     return (
-        <div>
-            <Header />
+        <>
+
             {/* show contents when portfolioData is not null */}
-            { portfolioData && (
-                <div className='bg-base-200 px-40 sm:px-5'>
-                    <Intro />
-                    <About />
-                    <Project />
-                    <Contact />
-                    <Footer />
-                    <LeftSider />
-                </div>
+
+            {portfolioData && (
+                <div>
+                    <Header />
+                    <div className='bg-base-200 px-40 sm:px-5'>
+                        <Intro />
+                        <About />
+                        <Project />
+                        <Contact />
+                        <Footer />
+                        <LeftSider />
+                    </div>
+                </div >
             )}
-        </div>
+        </>
     )
 }
 

@@ -26,6 +26,8 @@ const Header = () => {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
 
+
+
   return (
     // <div className='p-5 bg-primary flex justify-between lg:hidden'>
     //     <h1 className='text-secondary text-4xl font-semibold'>M</h1>
