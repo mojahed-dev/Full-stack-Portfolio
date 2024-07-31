@@ -44,13 +44,15 @@ const Project = () => {
                     </div>
                 </div>
             </div> */}
-            <div className='flex gap-10 items-center justify-center sm:flex-col lg:grid lg:grid-cols-3  grow'>
+            <div className='flex gap-10 items-center justify-center sm:flex-col lg:grid lg:grid-cols-3'>
                 {project.map((pro, index) => (
-                    <div className="card bg-base-100 w-96 shadow-xl z-0 w-full">
+                    <div className="card bg-base-100 shadow-xl z-0 w-full ">
                         <figure>
                             <img
                                 src={(pro.image) ? pro.image : ''}
-                                alt="Project" />
+                                alt="Project" 
+                                className='w-full h-auto'
+                            />
                         </figure>
                         <div className="card-body">
                             <h2 className="card-title">{pro.title || ''}</h2>

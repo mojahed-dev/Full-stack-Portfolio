@@ -1,4 +1,4 @@
-import Reac from 'react'
+import Reac, { useEffect } from 'react'
 import Header from '../../components/Header'
 import { Tabs } from 'antd';
 import AdminIntro from './AdminIntro';
@@ -28,6 +28,14 @@ const items = [
 
 const Admin = () => {
     const { portfolioData } = useSelector((state) => state.root);
+    
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            window.location.href = '/admin-login';
+        }
+    }, [])
+    
+
     return (
         <div className='bg-[#F0F2F5] min-h-screen m-0 p-0'>
             {/* <Header /> */}
