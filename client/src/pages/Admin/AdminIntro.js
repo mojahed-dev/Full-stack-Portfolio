@@ -49,9 +49,10 @@ const AdminIntro = () => {
                 <TextArea rows={4} placeholder='Description' />
             </Form.Item>
             <div className="flex justify-end w-full">
-                <button className="btn-custom-primary btn-md" type="submit">
+                {/* <button className="btn-custom-primary btn-md" type="submit">
                     Submit
-                </button>
+                </button> */}
+                <button className='btn btn-primary' type='submit'>Submit</button>
             </div>
         </Form>
         </div>
